@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import * as PRODUCTS from '../../api/products/products.json';
 
 @Component({
     selector: 'pm-products',
@@ -6,5 +7,6 @@ import {Component} from '@angular/core';
 })
 export class ProductListComponent{
     pageTitle: string = 'Product List';
+    products: object[] = PRODUCTS.default;
 
 }

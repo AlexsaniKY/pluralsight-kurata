@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="table-responsive">
-            <table class="table">
+            <table class="table" *ngIf='this.products && this.products.length'>
                 <thead>
                     <tr>
                         <th><button class="btn btn-primary">Show Image</button></th>
