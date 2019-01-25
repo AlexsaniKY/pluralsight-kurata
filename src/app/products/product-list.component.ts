@@ -23,7 +23,7 @@ export class ProductListComponent{
     products: ProductDefinition[] = <ProductDefinition[]> PRODUCTS.default;
     showPictures: boolean = true;
 
-    togglePictures(){
+    togglePictures(): void{
         this.showPictures = !this.showPictures;
     }
 }
