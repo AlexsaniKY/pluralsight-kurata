@@ -21,7 +21,13 @@
             <table class="table" *ngIf='products && products.length'>
                 <thead>
                     <tr>
-                        <th><button class="btn btn-primary">Show Image</button></th>
+                        <th>
+                            <button class="btn btn-primary" 
+                            (click)='togglePictures()'
+                            [style.width.px]='imageWidth + imageMargin*2'>
+                                Show Image
+                            </button>
+                        </th>
                         <th>Product</th>
                         <th>Code</th>
                         <th>Available</th>

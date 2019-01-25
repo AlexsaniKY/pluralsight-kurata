@@ -22,4 +22,8 @@ export class ProductListComponent{
     imageMargin:number = 50;
     products: ProductDefinition[] = <ProductDefinition[]> PRODUCTS.default;
     showPictures: boolean = true;
+
+    togglePictures(){
+        this.showPictures = !this.showPictures;
+    }
 }
