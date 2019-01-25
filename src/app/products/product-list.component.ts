@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import * as PRODUCTS from '../../api/products/products.json';
 
+//strongly typed allows html autocompletion to assist, DOES NOT PROTECT AGAINST A MALFORMED JSON
 interface ProductDefinition{
     productId: number;
     productName: string;
