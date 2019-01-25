@@ -22,6 +22,7 @@ export class ProductListComponent{
     imageMargin:number = 50;
     products: ProductDefinition[] = <ProductDefinition[]> PRODUCTS.default;
     showPictures: boolean = true;
+    listFilter: string= 'cart';
 
     togglePictures(): void{
         this.showPictures = !this.showPictures;
