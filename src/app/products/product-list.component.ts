@@ -2,7 +2,8 @@ import {Component} from '@angular/core';
 import * as PRODUCTS from '../../api/products/products.json';
 
 //strongly typed allows html autocompletion to assist, DOES NOT PROTECT AGAINST A MALFORMED JSON
-interface ProductDefinition{
+//defining the data as strongly typed members inside a *.ts would catch the malformed data however
+interface IProductDefinition{
     productId: number;
     productName: string;
     productCode: string;
@@ -21,7 +22,7 @@ export class ProductListComponent{
     pageTitle: string = 'Product List';
     imageWidth:number = 50;
     imageMargin:number = 50;
-    products: ProductDefinition[] = <ProductDefinition[]> PRODUCTS.default;
+    products: IProductDefinition[] = <IProductDefinition[]> PRODUCTS.default;
     showPictures: boolean = true;
     listFilter: string= 'cart';
 
