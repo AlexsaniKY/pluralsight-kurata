@@ -19,5 +19,5 @@ interface ProductDefinition{
 export class ProductListComponent{
     pageTitle: string = 'Product List';
     products: ProductDefinition[] = <ProductDefinition[]> PRODUCTS.default;
-
+    showPictures: boolean = false;
 }

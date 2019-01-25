@@ -31,7 +31,7 @@
                 </thead>
                 <tbody>
                     <tr *ngFor='let product of products'>
-                        <td></td>
+                        <td><img *ngIf='showPictures' [src]='product.imageUrl' [alt]='product.productName'></td>
                         <td>{{ product.productName }}</td>
                         <td>{{ product.productCode }}</td>
                         <td>{{ product.releaseDate }}</td>
