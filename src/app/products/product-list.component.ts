@@ -18,6 +18,8 @@ interface ProductDefinition{
 })
 export class ProductListComponent{
     pageTitle: string = 'Product List';
+    imageWidth:number = 50;
+    imageMargin:number = 50;
     products: ProductDefinition[] = <ProductDefinition[]> PRODUCTS.default;
-    showPictures: boolean = false;
+    showPictures: boolean = true;
 }
