@@ -18,20 +18,18 @@ export function lerp_rgb(
 }
 
 export function color_ramp(colors:{r:number, g:number, b:number}[], mix){
-    console.log(colors);
     if(colors.length === 0) new Error("No colors provided to interpolate");
     if(colors.length === 1) return colors[0];
-    let color_interval:number = colors.length / 1.0;
+
     //find first color
     let color_index:number = Math.floor(mix*(colors.length-1));
-    console.log(color_index);
+
     //clamp to within range
     color_index = color_index >= 0? color_index: 0;
     if(color_index >= colors.length-1) return colors[colors.length-1];
-    let col_1 = colors[color_index];
-    let col_2 = colors[color_index+1];
-    console.log(col_1);
-    console.log(col_2);
-    console.log(mix*colors.length - color_index);
-    return lerp_rgb(col_1, col_2, (mix*(colors.length-1)) - color_index);
+
+    return lerp_rgb(
+        colors[color_index], 
+        colors[color_index+1], 
+        (mix*(colors.length-1)) - color_index);
 }
