@@ -8,9 +8,12 @@ import { Component, Input, OnChanges } from "@angular/core";
 export class StarComponent implements OnChanges {
     @Input() rating: number;
     starWidth: number;
+    starColor: string = "Gold";
 
     ngOnChanges(): void {
         this.starWidth = this.rating * 75 / 5;
     }
+
+    
 
 }
