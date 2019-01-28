@@ -28,11 +28,11 @@
                                 {{showPictures? 'Hide':'Show'}} Image
                             </button>
                         </th>
-                        <th>Product</th>
-                        <th>Code</th>
-                        <th>Available</th>
-                        <th>Price</th>
-                        <th>5 Star Rating</th>
+                        <th (click)="onTitleClick('productName')">Product</th>
+                        <th (click)="onTitleClick('productCode')">Code</th>
+                        <th (click)="onTitleClick('releaseDate')">Available</th>
+                        <th (click)="onTitleClick('price')">Price</th>
+                        <th (click)="onTitleClick('starRating')">5 Star Rating</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,11 +45,11 @@
                             [style.width.px]='imageWidth'
                             [style.margin.px]='imageMargin'>
                         </td>
-                        <td>{{ product.productName }}</td>
+                        <td >{{ product.productName }}</td>
                         <td>{{ product.productCode }}</td>
                         <td>{{ product.releaseDate.toLocaleDateString("en-US", {month: "long", day: "numeric", year: "numeric"}) }}</td>
                         <td>{{ product.price | currency:'USD'}}</td>
-                        <td>
+                        <td >
                             <pm-star 
                                 [rating]='product.starRating'
                                 (ratingClicked)='onRatingClicked($event)'>

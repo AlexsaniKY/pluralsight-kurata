@@ -2,7 +2,16 @@ import {Component} from '@angular/core';
 import {IProductDefinition, PRODUCTS} from './product-definitions';
 import {regexMatches} from '../../helpers/regex';
 
-
+let empty_product:IProductDefinition = {
+    productId: -1,
+    productName: "_",
+    productCode: "_",
+    releaseDate: new Date(),
+    description: "_",
+    price: -1,
+    starRating: -1,
+    imageUrl: "_"
+};
 
 @Component({
     selector: 'pm-products',
@@ -47,9 +56,28 @@ export class ProductListComponent{
         return filtered_list;
     }
 
-    sortProducts(){
+    onTitleClick(field: string){
+        console.log(field);
+        console.log(empty_product[field]);
+        this.sortProducts(field);
 
-        
+    }
+
+    sortProducts(field: string): void{
+        let compare;
+        if(typeof empty_product[field] === "number" ) 
+            compare = (a,b)=>{return a[field]-b[field]};
+        else if(empty_product[field] instanceof Date)
+            compare = (a,b)=>{return a[field].getTime() - b[field].getTime()};
+        else compare = (a,b)=>{
+            let a_val = a[field];
+            let b_val = b[field];
+            if(a_val < b_val) return -1;
+            if(a_val > b_val) return 1;
+            return 0;
+        };
+        this.filteredProducts.sort(compare);
+        console.log(this.filteredProducts);
     }
 
     onRatingClicked(message: string): void{
