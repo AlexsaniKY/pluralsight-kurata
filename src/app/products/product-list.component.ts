@@ -12,7 +12,7 @@ import {regexMatches} from '../../helpers/regex';
 export class ProductListComponent{
     pageTitle: string = 'Product List';
     imageWidth:number = 50;
-    imageMargin:number = 50;
+    imageMargin:number = 25;
     products: IProductDefinition[] = PRODUCTS;
     filteredProducts: IProductDefinition[] = PRODUCTS;
     showPictures: boolean = true;
