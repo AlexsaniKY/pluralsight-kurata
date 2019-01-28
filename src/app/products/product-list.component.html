@@ -47,7 +47,7 @@
                         </td>
                         <td>{{ product.productName }}</td>
                         <td>{{ product.productCode }}</td>
-                        <td>{{ product.releaseDate }}</td>
+                        <td>{{ product.releaseDate.toLocaleDateString("en-US", {month: "long", day: "numeric", year: "numeric"}) }}</td>
                         <td>{{ product.price | currency:'USD'}}</td>
                         <td>
                             <pm-star 

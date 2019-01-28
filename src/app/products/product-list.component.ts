@@ -47,6 +47,11 @@ export class ProductListComponent{
         return filtered_list;
     }
 
+    sortProducts(){
+
+        
+    }
+
     onRatingClicked(message: string): void{
         this.pageTitle = 'Product List: ' + message;
     }
