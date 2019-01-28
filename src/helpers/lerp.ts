@@ -6,7 +6,7 @@ export function lerp(num_min:number, num_max:number, mix:number): number{
 
 }
 
-export function lerp_color(
+export function lerp_rgb(
         col_1:{r:number,g:number,b:number}, 
         col_2:{r:number,g:number,b:number}, 
         mix:number){
