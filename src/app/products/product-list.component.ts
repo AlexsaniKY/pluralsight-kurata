@@ -27,19 +27,15 @@ export class ProductListComponent{
     }
 
     performFilter(filterString: string): IProductDefinition[]{
-        //return this.products;
         let filtered_list: IProductDefinition[] = this.products;
-        //filtered_list =  filtered_list.filter((prod) =>  prod.productName.includes(filterString));
-        //console.log(filtered_list);
-        //return filtered_list;
         let filter: string;
-        let fil_gen = regexMatches(/([A-Za-z-])+\w/g, filterString);
+        let fil_gen = regexMatches(/[A-Za-z-'`]+/g, filterString);
         let next_filter = fil_gen.next();
         while(!next_filter.done){
-            filter = next_filter.value;
+            filter = next_filter.value.toLowerCase();
             console.log(next_filter);
-            filtered_list = filtered_list.filter(prod => {
-                return prod.productName.includes(filter);
+            filtered_list = filtered_list.filter(prod => { 
+                return prod.productName.toLowerCase().includes(filter);
             });
             next_filter = fil_gen.next();
         }
