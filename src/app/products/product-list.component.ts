@@ -29,11 +29,16 @@ export class ProductListComponent{
     performFilter(filterString: string): IProductDefinition[]{
         let filtered_list: IProductDefinition[] = this.products;
         let filter: string;
-        let fil_gen = regexMatches(/[A-Za-z-'`]+/g, filterString);
+        //matches individual words, OR whole contents of quote enclosed strings
+        let fil_gen = regexMatches(/[A-Za-z-'`&]+|(["'])(?:(?=(\\?))\2.)*?\1/g, filterString);
         let next_filter = fil_gen.next();
         while(!next_filter.done){
             filter = next_filter.value.toLowerCase();
-            console.log(next_filter);
+            //strip out leading and trailing quotes if they exist
+            if(filter.length > 2)
+                if((filter[0] === filter[filter.length-1]) && (filter[0] === "\"" || filter[0] === "'") )
+                    filter = filter.slice(1, filter.length-1);
+            //check search term membership in product names
             filtered_list = filtered_list.filter(prod => { 
                 return prod.productName.toLowerCase().includes(filter);
             });
