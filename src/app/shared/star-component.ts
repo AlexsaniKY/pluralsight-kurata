@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, Output, EventEmitter } from "@angular/core";
-import { lerp_rgb } from 'src/helpers/lerp';
+import { lerp_rgb, color_ramp } from 'src/helpers/lerp';
 
 @Component({
     selector: "pm-star",
@@ -14,9 +14,12 @@ export class StarComponent implements OnChanges {
 
     ngOnChanges(): void {
         this.starWidth = this.rating * 75 / 5;
-        let color_obj = lerp_rgb(
-            {r:153, g:5,   b:5}, 
-            {r:255,   g:204, b:0}, 
+        let color_obj = color_ramp(
+            [
+                {r:153, g:5,   b:5}, 
+                {r:255,   g:204, b:0},
+                {r:0, g:204, b:102}    
+            ], 
             this.rating / 5.);
         this.starColor = "rgb(" + color_obj.r + "," + color_obj.g + "," + color_obj.b + ")";
     }
