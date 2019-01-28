@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from "@angular/core";
+import { Component, Input, OnChanges, Output, EventEmitter } from "@angular/core";
 import { lerp_rgb } from 'src/helpers/lerp';
 
 @Component({
@@ -10,6 +10,7 @@ export class StarComponent implements OnChanges {
     @Input() rating: number;
     starWidth: number;
     starColor: string = "Gold";
+    @Output() ratingClicked: EventEmitter<string> = new EventEmitter<string>();
 
     ngOnChanges(): void {
         this.starWidth = this.rating * 75 / 5;
@@ -17,10 +18,12 @@ export class StarComponent implements OnChanges {
             {r:153, g:5,   b:5}, 
             {r:255,   g:204, b:0}, 
             this.rating / 5.);
-        console.log(color_obj);
         this.starColor = "rgb(" + color_obj.r + "," + color_obj.g + "," + color_obj.b + ")";
     }
 
-    
+    onClick(): void {
+        console.log(`rating ${this.rating} clicked`);
+        this.ratingClicked.emit(`rating ${this.rating} clicked`);
+    }
 
 }

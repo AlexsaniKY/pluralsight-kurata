@@ -47,6 +47,10 @@ export class ProductListComponent{
         return filtered_list;
     }
 
+    onRatingClicked(message: string): void{
+        this.pageTitle = 'Product List: ' + message;
+    }
+
     togglePictures(): void{
         this.showPictures = !this.showPictures;
     }
