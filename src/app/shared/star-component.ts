@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
     selector: "pm-star",
@@ -6,7 +6,7 @@ import { Component } from "@angular/core";
     styleUrls: ["./star-component.css"]
 })
 export class StarComponent {
-    rating: number = 4;
+    @Input() rating: number;
     starWidth: number;
 
     ngOnChanges(): void {
