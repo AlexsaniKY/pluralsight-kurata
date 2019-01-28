@@ -4,7 +4,7 @@
   "newProjectRoot": "projects",
   "projects": {
     "deborah-kurata-getting-started": {
-      "root": "",
+      "root": "src",
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
@@ -21,7 +21,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "api/products"
+              "src/api/products"
             ],
             "styles": [
               "src/styles.css"
