@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {IProductDefinition, PRODUCTS} from './product-definitions';
 import {regexMatches} from '../../helpers/regex';
+import { ProductService } from './product.service';
 
 let empty_product:IProductDefinition = {
     productId: -1,
@@ -28,7 +29,10 @@ export class ProductListComponent{
     sortedBy:string = null;
     sortReverse:boolean = false;
 
-    _listFilter: string= '';
+    constructor(private productService: ProductService){
+    }
+
+    private _listFilter: string= '';
     get listFilter(): string{
         return this._listFilter;
     }
