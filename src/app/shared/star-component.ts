@@ -16,9 +16,9 @@ export class StarComponent implements OnChanges {
         this.starWidth = this.rating * 75 / 5;
         let color_obj = color_ramp(
             [
-                {r:153, g:5,   b:5}, 
-                {r:255,   g:204, b:0},
-                {r:0, g:204, b:102}    
+                {r:153, g:5,   b:5  }, 
+                {r:255, g:204, b:0  },
+                {r:0,   g:204, b:102}    
             ], 
             this.rating / 5.);
         this.starColor = "rgb(" + color_obj.r + "," + color_obj.g + "," + color_obj.b + ")";
