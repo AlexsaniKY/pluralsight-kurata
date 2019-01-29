@@ -39,6 +39,7 @@ export class ProductListComponent implements OnInit{
 
     ngOnInit():void{
         this.products = this.productService.getProducts();
+        for(let i=0; i<100; i++) this.products.push(this.productService.randomProduct());
         this.filteredProducts = this.products;
     }
 
