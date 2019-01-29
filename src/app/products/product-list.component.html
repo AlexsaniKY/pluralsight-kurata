@@ -28,11 +28,36 @@
                                 {{showPictures? 'Hide':'Show'}} Image
                             </button>
                         </th>
-                        <th (click)="onTitleClick('productName')">Product</th>
-                        <th (click)="onTitleClick('productCode')">Code</th>
-                        <th (click)="onTitleClick('releaseDate')">Available</th>
-                        <th (click)="onTitleClick('price')">Price</th>
-                        <th (click)="onTitleClick('starRating')">5 Star Rating</th>
+                        <th (click)="onTitleClick('productName')">
+                            Product 
+                            <span [ngStyle]="{'visibility': this.sortedBy === 'productName'? 'visible': 'hidden'}">
+                                <span [ngClass]="{'fa':true, 'fa-caret-square-o-down':this.sortReverse, 'fa-caret-square-o-up':!this.sortReverse}"></span>
+                            </span>
+                        </th>
+                        <th (click)="onTitleClick('productCode')">
+                            Code
+                            <span [ngStyle]="{'visibility': this.sortedBy === 'productCode'? 'visible': 'hidden'}">
+                                <span [ngClass]="{'fa':true, 'fa-caret-square-o-down':this.sortReverse, 'fa-caret-square-o-up':!this.sortReverse}"></span>
+                            </span>
+                        </th>
+                        <th (click)="onTitleClick('releaseDate')">
+                            Available
+                            <span [ngStyle]="{'visibility': this.sortedBy === 'releaseDate'? 'visible': 'hidden'}">
+                                <span [ngClass]="{'fa':true, 'fa-caret-square-o-down':this.sortReverse, 'fa-caret-square-o-up':!this.sortReverse}"></span>
+                            </span>
+                        </th>
+                        <th (click)="onTitleClick('price')">
+                            Price
+                            <span [ngStyle]="{'visibility': this.sortedBy === 'price'? 'visible': 'hidden'}">
+                                <span [ngClass]="{'fa':true, 'fa-caret-square-o-down':this.sortReverse, 'fa-caret-square-o-up':!this.sortReverse}"></span>
+                            </span>
+                        </th>
+                        <th (click)="onTitleClick('starRating')">
+                            5 Star Rating
+                            <span [ngStyle]="{'visibility': this.sortedBy === 'starRating'? 'visible': 'hidden'}">
+                                <span [ngClass]="{'fa':true, 'fa-caret-square-o-down':this.sortReverse, 'fa-caret-square-o-up':!this.sortReverse}"></span>
+                            </span>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>

@@ -66,9 +66,8 @@ export class ProductListComponent{
     }
 
     onTitleClick(field: string){
-        console.log(field);
-        console.log(empty_product[field]);
         if(this.sortedBy === field) this.sortReverse = !this.sortReverse;
+        else this.sortReverse = false;
         this.sortedBy = field;
 
         this.sortProducts(field, this.sortReverse);

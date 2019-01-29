@@ -48,7 +48,7 @@ export let PRODUCTS: IProductDefinition[] = [
         "productCode": "TBX-0022",
         "releaseDate": new Date("2016-05-15"),//"May 15, 2016",
         "description": "15-inch steel blade hand saw",
-        "price": 11.55,
+        "price": 8.55,
         "starRating": 3.7,
         "imageUrl": "https://openclipart.org/image/300px/svg_to_png/27070/egore911_saw.png"
     },
