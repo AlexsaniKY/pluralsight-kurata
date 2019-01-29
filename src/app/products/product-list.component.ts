@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {IProductDefinition, PRODUCTS} from './product-definitions';
+import {Component, OnInit} from '@angular/core';
+import {IProductDefinition} from './product-definitions';
 import {regexMatches} from '../../helpers/regex';
 import { ProductService } from './product.service';
 
@@ -19,17 +19,22 @@ let empty_product:IProductDefinition = {
     templateUrl: './product-list.component.html',
     styleUrls: ['./product-list.component.css'],
 })
-export class ProductListComponent{
+export class ProductListComponent implements OnInit{
     pageTitle: string = 'Product List';
     imageWidth:number = 50;
     imageMargin:number = 25;
-    products: IProductDefinition[] = PRODUCTS;
-    filteredProducts: IProductDefinition[] = PRODUCTS;
+    products: IProductDefinition[];
+    filteredProducts: IProductDefinition[];
     showPictures: boolean = true;
     sortedBy:string = null;
     sortReverse:boolean = false;
 
     constructor(private productService: ProductService){
+    }
+
+    ngOnInit():void{
+        this.products = this.productService.getProducts();
+        this.filteredProducts = this.products;
     }
 
     private _listFilter: string= '';
@@ -51,6 +56,7 @@ export class ProductListComponent{
         let filtered_list: IProductDefinition[] = this.products;
         let filter: string;
         //matches individual words, OR whole contents of quote enclosed strings
+        //second half from https://stackoverflow.com/questions/171480/regex-grabbing-values-between-quotation-marks
         let fil_gen = regexMatches(/[A-Za-z-'`&]+|(["'])(?:(?=(\\?))\2.)*?\1/g, filterString);
         let next_filter = fil_gen.next();
         while(!next_filter.done){
@@ -75,7 +81,6 @@ export class ProductListComponent{
         this.sortedBy = field;
 
         this.sortProducts(field, this.sortReverse);
-
     }
 
     sortProducts(field: string, reverse: boolean): void{
