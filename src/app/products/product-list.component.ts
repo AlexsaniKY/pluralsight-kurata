@@ -35,6 +35,12 @@ export class ProductListComponent{
         this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
     }
 
+    /**
+     * 
+     * @param filterString user search string, containing separate search terms and quotations
+     * @description filters the products list based on search criteria
+     * @returns a filtered copy of the products list
+     */
     performFilter(filterString: string): IProductDefinition[]{
         let filtered_list: IProductDefinition[] = this.products;
         let filter: string;
@@ -48,6 +54,7 @@ export class ProductListComponent{
                 if((filter[0] === filter[filter.length-1]) && (filter[0] === "\"" || filter[0] === "'") )
                     filter = filter.slice(1, filter.length-1);
             //check search term membership in product names
+            //filter returns new shallow copy of array, preventing alteration of products
             filtered_list = filtered_list.filter(prod => { 
                 return prod.productName.toLowerCase().includes(filter);
             });
