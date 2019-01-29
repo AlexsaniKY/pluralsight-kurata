@@ -19,6 +19,14 @@
         </div>
         <div class="table-responsive">
             <table class="table" *ngIf='filteredProducts && filteredProducts.length'>
+                <colgroup>
+                <col>
+                <col [ngStyle]="{'background': this.sortedBy === 'productName'? 'lightyellow': 'none'}">
+                <col [ngStyle]="{'background': this.sortedBy === 'productCode'? 'lightyellow': 'none'}">
+                <col [ngStyle]="{'background': this.sortedBy === 'releaseDate'? 'lightyellow': 'none'}">
+                <col [ngStyle]="{'background': this.sortedBy === 'price'? 'lightyellow': 'none'}">
+                <col [ngStyle]="{'background': this.sortedBy === 'starRating'? 'lightyellow': 'none'}">
+                </colgroup>
                 <thead>
                     <tr>
                         <th>
