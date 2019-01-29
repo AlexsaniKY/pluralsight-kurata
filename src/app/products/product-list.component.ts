@@ -25,6 +25,8 @@ export class ProductListComponent{
     products: IProductDefinition[] = PRODUCTS;
     filteredProducts: IProductDefinition[] = PRODUCTS;
     showPictures: boolean = true;
+    sortedBy:string = null;
+    sortReverse:boolean = false;
 
     _listFilter: string= '';
     get listFilter(): string{
@@ -66,11 +68,14 @@ export class ProductListComponent{
     onTitleClick(field: string){
         console.log(field);
         console.log(empty_product[field]);
-        this.sortProducts(field);
+        if(this.sortedBy === field) this.sortReverse = !this.sortReverse;
+        this.sortedBy = field;
+
+        this.sortProducts(field, this.sortReverse);
 
     }
 
-    sortProducts(field: string): void{
+    sortProducts(field: string, reverse: boolean): void{
         let compare;
         if(typeof empty_product[field] === "number" ) 
             compare = (a,b)=>{return a[field]-b[field]};
@@ -83,8 +88,8 @@ export class ProductListComponent{
             if(a_val > b_val) return 1;
             return 0;
         };
-        this.filteredProducts.sort(compare);
-        console.log(this.filteredProducts);
+        if(reverse) this.filteredProducts.sort((a,b) => compare(b,a));
+        else this.filteredProducts.sort(compare);
     }
 
     onRatingClicked(message: string): void{
