@@ -36,31 +36,31 @@
                                 {{showPictures? 'Hide':'Show'}} Image
                             </button>
                         </th>
-                        <th (click)="onTitleClick('productName')">
+                        <th (click)="onHeaderClick('productName')">
                             Product 
                             <span [ngStyle]="{'visibility': this.sortedBy === 'productName'? 'visible': 'hidden'}">
                                 <span [ngClass]="{'fa':true, 'fa-caret-square-o-down':this.sortReverse, 'fa-caret-square-o-up':!this.sortReverse}"></span>
                             </span>
                         </th>
-                        <th (click)="onTitleClick('productCode')">
+                        <th (click)="onHeaderClick('productCode')">
                             Code
                             <span [ngStyle]="{'visibility': this.sortedBy === 'productCode'? 'visible': 'hidden'}">
                                 <span [ngClass]="{'fa':true, 'fa-caret-square-o-down':this.sortReverse, 'fa-caret-square-o-up':!this.sortReverse}"></span>
                             </span>
                         </th>
-                        <th (click)="onTitleClick('releaseDate')">
+                        <th (click)="onHeaderClick('releaseDate')">
                             Available
                             <span [ngStyle]="{'visibility': this.sortedBy === 'releaseDate'? 'visible': 'hidden'}">
                                 <span [ngClass]="{'fa':true, 'fa-caret-square-o-down':this.sortReverse, 'fa-caret-square-o-up':!this.sortReverse}"></span>
                             </span>
                         </th>
-                        <th (click)="onTitleClick('price')">
+                        <th (click)="onHeaderClick('price')">
                             Price
                             <span [ngStyle]="{'visibility': this.sortedBy === 'price'? 'visible': 'hidden'}">
                                 <span [ngClass]="{'fa':true, 'fa-caret-square-o-down':this.sortReverse, 'fa-caret-square-o-up':!this.sortReverse}"></span>
                             </span>
                         </th>
-                        <th (click)="onTitleClick('starRating')" style="text-align: left">
+                        <th (click)="onHeaderClick('starRating')" style="text-align: left">
                             5 Star Rating
                             <span [ngStyle]="{'visibility': this.sortedBy === 'starRating'? 'visible': 'hidden'}">
                                 <span [ngClass]="{'fa':true, 'fa-caret-square-o-down':this.sortReverse, 'fa-caret-square-o-up':!this.sortReverse}"></span>
