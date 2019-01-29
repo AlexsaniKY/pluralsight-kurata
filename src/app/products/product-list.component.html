@@ -60,7 +60,7 @@
                                 <span [ngClass]="{'fa':true, 'fa-caret-square-o-down':this.sortReverse, 'fa-caret-square-o-up':!this.sortReverse}"></span>
                             </span>
                         </th>
-                        <th (click)="onTitleClick('starRating')">
+                        <th (click)="onTitleClick('starRating')" style="text-align: left">
                             5 Star Rating
                             <span [ngStyle]="{'visibility': this.sortedBy === 'starRating'? 'visible': 'hidden'}">
                                 <span [ngClass]="{'fa':true, 'fa-caret-square-o-down':this.sortReverse, 'fa-caret-square-o-up':!this.sortReverse}"></span>
